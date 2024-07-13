@@ -4,7 +4,7 @@
 
 This project was completed using the [introductory book](https://gtk-rs.org/gtk4-rs/stable/latest/book/)
 
-Note that this project was built on a **Windows** development environment.
+Note that this project was built on a **Windows development environment**.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ pkg-config --modversion gtk4
 ```
 Use this information to add the gtk4 crate to your dependencies in Cargo.toml. For example, if the version returned by the command above is `4.14.4`:
 ```
-cargo add gtk4 --rename gtk --features v4_12
+cargo add gtk4 --rename gtk --features v4_14
 ```
 
 ## The project
