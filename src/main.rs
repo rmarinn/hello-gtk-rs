@@ -1,7 +1,9 @@
+mod custom;
+
+use custom::CounterButton;
 use gtk::prelude::*;
 use gtk::{glib, glib::clone, Application, ApplicationWindow, Button, Label};
 use std::cell::Cell;
-// use std::rc::Rc;
 
 const APP_ID: &str = "org.gtk_rs.HelloWorld1";
 
@@ -17,20 +19,18 @@ fn main() -> glib::ExitCode {
 }
 
 fn build_ui(app: &Application) {
-    // create a button
+    // ----- basic button with references to other GObjects -----
+
+    // create a label
     let counter_lbl = Label::builder()
         .label("You pressed the button 0 times!")
         .build();
 
     // create a button
-    let btn = Button::builder()
-        .label("Click me!")
-        .margin_top(12)
-        .build();
+    let btn = Button::builder().label("Click me!").margin_top(6).build();
 
-    // reference-counted object with inner-mutability
-    // let number = Rc::new(Cell::new(0));
-    let number = Cell::new(0);
+    // a mutable integer
+    let number: Cell<usize> = Cell::new(0);
 
     // connect callbacks
     btn.connect_clicked(clone!(
@@ -42,6 +42,20 @@ fn build_ui(app: &Application) {
         }
     ));
 
+    // ----- Using a custom button -----
+
+    // create another label
+    let another_lbl = Label::builder()
+        .label("A custom button with an internal counter:")
+        .margin_top(12)
+        .margin_bottom(6)
+        .build();
+
+    // create custom button
+    let custom_btn = CounterButton::with_label("0");
+
+    // ----- Putting it all in a container -----
+
     let gtk_box = gtk::Box::builder()
         .orientation(gtk::Orientation::Vertical)
         .margin_top(12)
@@ -51,6 +65,8 @@ fn build_ui(app: &Application) {
         .build();
     gtk_box.append(&counter_lbl);
     gtk_box.append(&btn);
+    gtk_box.append(&another_lbl);
+    gtk_box.append(&custom_btn);
 
     // create a window and set the title
     let window = ApplicationWindow::builder()
