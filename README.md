@@ -16,6 +16,17 @@ Note that this project was built on a **Windows** development environment.
     * Edit the variable named `Path` and add `..\gtk\bin` to it
     * Ensure there is a user variable named `Lib` with value `gtk\lib` (or add new value to existing variable if already exists)
 
+## Adding gtk to the project
+
+first find out what the gtk4 version on your machine is by running
+```
+pkg-config --modversion gtk4
+```
+Use this information to add the gtk4 crate to your dependencies in Cargo.toml. For example, if the version returned by the command above is `4.14.4`:
+```
+cargo add gtk4 --rename gtk --features v4_12
+```
+
 ## The project
 
 * all the code can be found in `src/main.rs`
