@@ -4,7 +4,7 @@
 
 This project was completed using the [introductory book](https://gtk-rs.org/gtk4-rs/stable/latest/book/)
 
-Note that this project was built on a **Windows development environment**.
+For a demo of using composite templates, see the [template branch](https://github.com/rmarinn/hello-gtk-rs/tree/templates)
 
 ## Prerequisites
 
