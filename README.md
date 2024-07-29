@@ -4,7 +4,9 @@
 
 
 This project was completed using the [introductory book](https://gtk-rs.org/gtk4-rs/stable/latest/book/)
+
 This branch specifically, is a demo on how to use [composite templates](https://gtk-rs.org/gtk4-rs/stable/latest/book/composite_templates.html)
+
 For a basic setup without using templates, see the [main branch](https://github.com/rmarinn/hello-gtk-rs)
 
 ## Prerequisites
