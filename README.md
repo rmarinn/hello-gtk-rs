@@ -33,7 +33,9 @@ cargo add gtk4 --rename gtk --features v4_14
 ## Templating Prerequisites
 
 1. add `glib-build-tools` as a dependency
-    ```cargo add glib-build-tools --build```
+```
+cargo add glib-build-tools --build
+```
 2. create build script at the root of the package (see `build.rs`)
 
 ## Templating Basics
